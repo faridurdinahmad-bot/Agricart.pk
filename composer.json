@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "faridurdinahmad-bot/agricart-erp",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Agricart ERP - Agricultural business management platform.",
+    "keywords": ["laravel", "erp", "agriculture"],
     "license": "MIT",
     "require": {
         "php": "^8.2",

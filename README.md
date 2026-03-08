@@ -38,7 +38,7 @@ npm run build
 # Run migrations
 php artisan migrate
 
-# (Optional) Seed test user: test@example.com / password
+# (Optional) Seed admin user: admin@agricart.pk / password
 php artisan db:seed
 ```
 
