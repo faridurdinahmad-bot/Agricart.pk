@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'Laporan Pembelian',
             'inventory_reports' => 'Laporan Inventori',
             'finance_reports' => 'Laporan Keuangan',
+            'logistics_reports' => 'Laporan Logistik',
             'staff_contacts_reports' => 'Laporan Staf & Kontak',
         ],
         'sub_settings' => [

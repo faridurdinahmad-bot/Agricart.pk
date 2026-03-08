@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'Satın Alma Raporları',
             'inventory_reports' => 'Envanter Raporları',
             'finance_reports' => 'Finans Raporları',
+            'logistics_reports' => 'Lojistik Raporları',
             'staff_contacts_reports' => 'Personel ve İletişim Raporları',
         ],
         'sub_settings' => [

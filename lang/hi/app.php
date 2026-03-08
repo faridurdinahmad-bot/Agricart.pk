@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'खरीद रिपोर्ट',
             'inventory_reports' => 'इन्वेंटरी रिपोर्ट',
             'finance_reports' => 'वित्त रिपोर्ट',
+            'logistics_reports' => 'लॉजिस्टिक्स रिपोर्ट',
             'staff_contacts_reports' => 'स्टाफ और संपर्क रिपोर्ट',
         ],
         'sub_settings' => [

@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'Отчёты по закупкам',
             'inventory_reports' => 'Отчёты по запасам',
             'finance_reports' => 'Финансовые отчёты',
+            'logistics_reports' => 'Отчёты по логистике',
             'staff_contacts_reports' => 'Отчёты по персоналу и контактам',
         ],
         'sub_settings' => [

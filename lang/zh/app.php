@@ -157,6 +157,7 @@ return [
             'purchase_reports' => '采购报表',
             'inventory_reports' => '库存报表',
             'finance_reports' => '财务报表',
+            'logistics_reports' => '物流报表',
             'staff_contacts_reports' => '员工与联系人报表',
         ],
         'sub_settings' => [

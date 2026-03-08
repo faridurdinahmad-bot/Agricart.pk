@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'گزارش خرید',
             'inventory_reports' => 'گزارش موجودی',
             'finance_reports' => 'گزارش مالی',
+            'logistics_reports' => 'گزارش لجستیک',
             'staff_contacts_reports' => 'گزارش کارکنان و مخاطبین',
         ],
         'sub_settings' => [

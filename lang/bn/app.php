@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'ক্রয় রিপোর্ট',
             'inventory_reports' => 'ইনভেন্টরি রিপোর্ট',
             'finance_reports' => 'অর্থ রিপোর্ট',
+            'logistics_reports' => 'লজিস্টিক্স রিপোর্ট',
             'staff_contacts_reports' => 'স্টাফ এবং যোগাযোগ রিপোর্ট',
         ],
         'sub_settings' => [

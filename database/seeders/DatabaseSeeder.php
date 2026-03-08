@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@agricart.pk',
             'password' => 'password',
         ]);
+
+        $this->call(LeaveTypeSeeder::class);
     }
 }

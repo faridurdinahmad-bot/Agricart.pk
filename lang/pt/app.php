@@ -157,6 +157,7 @@ return [
             'purchase_reports' => 'Relatórios de Compras',
             'inventory_reports' => 'Relatórios de Inventário',
             'finance_reports' => 'Relatórios Financeiros',
+            'logistics_reports' => 'Relatórios de Logística',
             'staff_contacts_reports' => 'Relatórios de Funcionários e Contatos',
         ],
         'sub_settings' => [

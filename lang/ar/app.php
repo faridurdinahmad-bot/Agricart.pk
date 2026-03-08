@@ -159,6 +159,7 @@ return [
             'purchase_reports' => 'تقارير المشتريات',
             'inventory_reports' => 'تقارير المخزون',
             'finance_reports' => 'التقارير المالية',
+            'logistics_reports' => 'تقارير اللوجستيات',
             'staff_contacts_reports' => 'تقارير الموظفين والجهات',
         ],
         'sub_settings' => [

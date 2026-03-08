@@ -157,6 +157,7 @@ return [
             'purchase_reports' => '購買レポート',
             'inventory_reports' => '在庫レポート',
             'finance_reports' => '財務レポート',
+            'logistics_reports' => 'ロジスティクスレポート',
             'staff_contacts_reports' => 'スタッフ・連絡先レポート',
         ],
         'sub_settings' => [
