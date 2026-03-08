@@ -12,14 +12,14 @@
             <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.reports.inventory') }}</h1>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
             <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6">
                 <p class="text-xs text-white/60 mb-1">{{ __('app.reports.total_inventory_value') }}</p>
                 <p class="text-2xl font-bold text-[#83b735]">{{ number_format($totalValue, 2) }}</p>
             </div>
             <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6">
                 <p class="text-xs text-white/60 mb-1">{{ __('app.reports.products_count') }}</p>
-                <p class="text-2xl font-bold text-white/90">{{ $products->count() }}</p>
+                <p class="text-2xl font-bold text-white/90">{{ $productsCount }}</p>
             </div>
             <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6">
                 <p class="text-xs text-white/60 mb-1">{{ __('app.reports.low_stock_items') }}</p>
@@ -34,7 +34,7 @@
 
         <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl overflow-hidden">
             <div class="px-4 py-3 border-b border-white/20">
-                <h3 class="text-sm font-bold text-white/90">{{ __('app.reports.products_count') }} ({{ $products->count() }})</h3>
+                <h3 class="text-sm font-bold text-white/90">{{ __('app.reports.products_count') }} ({{ $productsCount }})</h3>
             </div>
             <div class="overflow-x-auto max-h-96 overflow-y-auto">
                 <table class="w-full">
@@ -68,8 +68,8 @@
                     </tbody>
                 </table>
             </div>
-            @if($products->count() > 50)
-            <div class="px-4 py-2 border-t border-white/10 text-sm text-white/60">{{ __('app.reports.products_count') }}: {{ $products->count() }}</div>
+            @if($productsCount > 100)
+            <div class="px-4 py-2 border-t border-white/10 text-sm text-white/60">{{ __('app.reports.products_count') }}: {{ $productsCount }}</div>
             @endif
         </div>
     </div>

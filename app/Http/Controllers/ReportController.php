@@ -50,11 +50,21 @@ class ReportController extends Controller
 
     public function inventory(Request $request): View
     {
-        $products = Product::where('status', 'active')->with(['category', 'unit'])->get();
-        $totalValue = $products->sum(fn ($p) => $p->quantity * $p->purchase_price);
-        $lowStockCount = $products->filter(fn ($p) => $p->reorder_level > 0 && $p->quantity <= $p->reorder_level)->count();
+        $totalValue = Product::where('status', 'active')
+            ->selectRaw('SUM(quantity * purchase_price) as total')
+            ->value('total') ?? 0;
+        $lowStockCount = Product::where('status', 'active')
+            ->where('reorder_level', '>', 0)
+            ->whereColumn('quantity', '<=', 'reorder_level')
+            ->count();
+        $productsCount = Product::where('status', 'active')->count();
+        $products = Product::where('status', 'active')
+            ->with(['category', 'unit'])
+            ->orderBy('name')
+            ->limit(100)
+            ->get();
 
-        return view('reports.inventory', compact('products', 'totalValue', 'lowStockCount'));
+        return view('reports.inventory', compact('products', 'productsCount', 'totalValue', 'lowStockCount'));
     }
 
     public function finance(Request $request): View

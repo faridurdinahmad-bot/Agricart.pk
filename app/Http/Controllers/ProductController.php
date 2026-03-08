@@ -23,7 +23,7 @@ class ProductController extends Controller
             ->when($request->search, fn ($q) => $q->where('name', 'like', "%{$request->search}%")
                 ->orWhere('sku', 'like', "%{$request->search}%"))
             ->when($request->status === 'inactive', fn ($q) => $q->where('status', 'inactive'), fn ($q) => $q->where('status', 'active'))
-            ->when($request->low_stock, fn ($q) => $q->whereRaw('quantity <= reorder_level')->where('reorder_level', '>', 0))
+            ->when($request->low_stock, fn ($q) => $q->whereColumn('quantity', '<=', 'reorder_level')->where('reorder_level', '>', 0))
             ->latest()
             ->paginate(15)
             ->withQueryString();

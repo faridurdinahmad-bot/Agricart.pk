@@ -53,22 +53,32 @@ class PayrollController extends Controller
         ]);
 
         $staff = Staff::where('status', 'active')->get();
+        $staffIds = $staff->pluck('id');
+
+        $salaries = StaffSalary::whereIn('staff_id', $staffIds)
+            ->where('status', 'active')
+            ->orderBy('staff_id')
+            ->latest('effective_from')
+            ->get()
+            ->unique('staff_id')
+            ->keyBy('staff_id');
+
+        $attendances = Attendance::whereIn('staff_id', $staffIds)
+            ->whereBetween('date', [$start, $end])
+            ->get()
+            ->groupBy('staff_id');
+
         $totalAmount = 0;
 
         foreach ($staff as $s) {
-            $salary = StaffSalary::where('staff_id', $s->id)->where('status', 'active')->latest()->first();
+            $salary = $salaries->get($s->id);
             $basic = $salary?->basic_salary ?? 0;
             $allowances = $salary?->allowances ?? 0;
             $deductions = $salary?->deductions ?? 0;
 
-            $presentDays = Attendance::where('staff_id', $s->id)
-                ->whereBetween('date', [$start, $end])
-                ->whereIn('status', ['present', 'half_day'])
-                ->count();
-            $halfDays = Attendance::where('staff_id', $s->id)
-                ->whereBetween('date', [$start, $end])
-                ->where('status', 'half_day')
-                ->count();
+            $staffAttendances = $attendances->get($s->id, collect());
+            $presentDays = $staffAttendances->whereIn('status', ['present', 'half_day'])->count();
+            $halfDays = $staffAttendances->where('status', 'half_day')->count();
             $absentDays = $totalDays - $presentDays;
             if ($absentDays < 0) {
                 $absentDays = 0;
