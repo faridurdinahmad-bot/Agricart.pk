@@ -3,16 +3,11 @@
 @section('title', __('app.menu.sub_settings.theme_settings') . ' - Agricart ERP')
 
 @section('content')
-<div class="px-3 sm:px-4 md:px-5 py-4 sm:py-5">
+<div class="page-container">
     <div class="max-w-2xl mx-auto">
-        <div class="flex items-center gap-3 mb-6">
-            <a href="{{ route('dashboard') }}" class="p-2 rounded-xl glass-solid border border-white/20 text-white/90 hover:bg-white/20 transition-all">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-            </a>
-            <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.menu.sub_settings.theme_settings') }}</h1>
-        </div>
+        <x-page-back :href="route('dashboard')" :title="__('app.menu.sub_settings.theme_settings')" />
 
-        <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6 sm:p-8">
+        <x-card>
             <div class="space-y-6">
                 <div>
                     <h3 class="text-sm font-bold text-white/90 mb-3">{{ __('app.settings.language') }}</h3>
@@ -33,7 +28,7 @@
                     <p class="text-sm text-white/70">{{ __('app.settings.theme_note') }}</p>
                 </div>
             </div>
-        </div>
+        </x-card>
     </div>
 </div>
 @endsection

@@ -65,7 +65,7 @@
                             </td>
                         </tr>
                         @empty
-                        <tr><td colspan="4" class="px-4 py-8 text-center text-white/60">{{ __('app.finance.no_transactions') }}</td></tr>
+                        <tr><td colspan="4"><x-empty-state :message="__('app.finance.no_transactions')" /></td></tr>
                         @endforelse
                     </tbody>
                 </table>

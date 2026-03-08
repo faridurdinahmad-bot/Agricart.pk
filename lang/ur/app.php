@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'common' => [
+        'no_search_results' => 'سرچ میں کوئی نتیجہ نہیں ملا۔ دوسرے الفاظ آزمائیں۔',
+        'back' => 'واپس',
+        'loading' => 'لوڈ ہو رہا ہے…',
+    ],
     'nav' => [
         'login' => 'لاگ ان',
         'register' => 'رجسٹر',
@@ -73,9 +78,15 @@ return [
         'default_user' => 'ایڈمن',
         'menus' => 'مینیوز',
         'key_metrics' => 'کی میٹرکس',
+        'crystal_clear' => 'بالکل کرسٹل',
         'crystal_soft' => 'زیادہ کرسٹل',
         'crystal_moderate' => 'متوازن',
         'crystal_strong' => 'زیادہ واضح',
+        'crystal_deep' => 'گہرا',
+        'glass' => 'گلاس',
+        'glass_opacity' => 'پینل شفافیت تبدیل کریں',
+        'glass_light' => 'زیادہ شفاف',
+        'glass_dark' => 'زیادہ گہرا',
     ],
     'staff' => [
         'title' => 'اسٹاف لسٹ',

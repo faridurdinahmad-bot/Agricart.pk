@@ -15,18 +15,11 @@
 
             {{-- Validation Errors --}}
             @if ($errors->any())
-                <div class="mb-4 p-3 sm:p-4 rounded-xl bg-red-500/20 border border-red-400/30">
-                    <div class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd"/>
-                        </svg>
-                        <div class="text-sm text-red-200">
-                            @foreach ($errors->all() as $error)
-                                <p>{{ $error }}</p>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+                <x-alert type="error" class="mb-4">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </x-alert>
             @endif
 
             {{-- Login Form --}}
@@ -96,12 +89,9 @@
                 </div>
 
                 {{-- Submit Button --}}
-                <button
-                    type="submit"
-                    class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-[#83b735] text-white text-sm sm:text-base font-semibold hover:bg-[#6f9d2d] focus:outline-none focus:ring-2 focus:ring-[#83b735] focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-200 shadow-lg shadow-[#83b735]/25"
-                >
+                <x-button type="submit" variant="primary" size="lg" block>
                     {{ __('app.auth.sign_in') }}
-                </button>
+                </x-button>
             </form>
 
             {{-- Divider --}}

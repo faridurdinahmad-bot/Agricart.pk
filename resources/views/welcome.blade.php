@@ -16,14 +16,12 @@
                     {{ __('app.hero.description') }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="{{ route('register') }}"
-                       class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#83b735] text-white font-semibold text-lg hover:bg-[#6f9d2d] transition-all duration-200 shadow-lg shadow-[#83b735]/30">
+                    <x-button href="{{ route('register') }}" variant="primary" size="lg">
                         {{ __('app.hero.get_started') }}
-                    </a>
-                    <a href="#features"
-                       class="inline-flex items-center justify-center px-8 py-4 rounded-xl backdrop-blur-xl glass-solid border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-200">
+                    </x-button>
+                    <x-button href="#features" variant="secondary" size="lg">
                         {{ __('app.hero.explore_features') }}
-                    </a>
+                    </x-button>
                 </div>
             </div>
         </div>

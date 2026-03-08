@@ -4,7 +4,7 @@
 
 @section('content')
 {{-- Welcome bar --}}
-<div class="px-3 sm:px-4 md:px-5 pt-4 sm:pt-5">
+<div class="page-container pt-4 sm:pt-5">
     <div class="max-w-7xl mx-auto">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
@@ -23,21 +23,21 @@
     </div>
 </div>
 
-{{-- Two crystal forms: Menus (left) | Key Metrics (right) --}}
-<div class="flex-1 flex min-h-[calc(100vh-16rem)] p-3 sm:p-4 md:p-5">
-    <div class="flex-1 flex flex-row gap-3 sm:gap-4 md:gap-5 w-full max-w-7xl mx-auto h-full min-h-0">
-        {{-- Crystal Form 1 (Left) - Menus --}}
-        <div class="flex-1 min-w-0 min-h-full backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
+{{-- Two panels: on mobile stack vertically, on md+ side by side --}}
+<div class="flex-1 flex min-h-0 w-full overflow-x-hidden p-3 sm:p-4 md:p-5">
+    <div class="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 w-full max-w-7xl mx-auto min-h-0 flex-1">
+        {{-- Panel 1 - Menus --}}
+        <div class="flex-1 min-w-0 min-h-[280px] lg:min-h-[calc(100vh-16rem)] max-h-[50vh] lg:max-h-none backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
             <div class="px-4 sm:px-5 md:px-6 pt-4 sm:pt-5 md:pt-6 pb-3 border-b border-white/20 bg-white/5">
                 <h2 class="text-base sm:text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                     <span class="w-1 h-5 rounded-full bg-[#83b735]"></span>
                     {{ __('app.dashboard.menus') }}
                 </h2>
             </div>
-            {{-- Three sections: MAIN | SUB | ACTIONS --}}
-            <div class="flex-1 flex flex-row min-h-0 overflow-hidden" x-data="{ selected: 'users_staff', selectedSub: '' }">
+            {{-- Three sections: on mobile stack (flex-col), on md+ side by side (flex-row) --}}
+            <div class="flex-1 flex flex-col md:flex-row min-h-0 overflow-hidden overflow-x-auto md:overflow-x-visible" x-data="{ selected: 'users_staff', selectedSub: '' }">
                 {{-- MAIN --}}
-                <div class="flex-1 min-w-0 flex flex-col border-r border-white/15 p-3 overflow-auto bg-white/[0.02]">
+                <div class="flex-1 min-w-0 flex flex-col md:border-r border-white/15 p-3 overflow-auto bg-white/[0.02] shrink-0 md:shrink">
                     <h3 class="text-[10px] font-bold text-white/70 uppercase tracking-widest mb-3 px-1">{{ __('app.menu.main') }}</h3>
                     <div class="space-y-1">
                         @foreach (['users_staff', 'contacts', 'inventory', 'purchase', 'sales', 'finance', 'logistics', 'reports', 'settings'] as $item)
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 {{-- SUB --}}
-                <div class="flex-1 min-w-0 flex flex-col border-r border-white/15 p-3 overflow-auto">
+                <div class="flex-1 min-w-0 flex flex-col md:border-r border-white/15 p-3 overflow-auto shrink-0 md:shrink">
                     <h3 class="text-[10px] font-bold text-white/70 uppercase tracking-widest mb-3 px-1">{{ __('app.menu.sub') }}</h3>
                     <div class="flex-1" x-show="selected === 'users_staff'" x-transition:enter="transition ease-out duration-150" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                         <div class="space-y-1">
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 {{-- ACTIONS --}}
-                <div class="flex-1 min-w-0 flex flex-col p-3 overflow-auto bg-white/[0.02]">
+                <div class="flex-1 min-w-0 flex flex-col p-3 overflow-auto bg-white/[0.02] shrink-0 md:shrink min-w-[140px]">
                     <h3 class="text-[10px] font-bold text-white/70 uppercase tracking-widest mb-3 px-1">{{ __('app.menu.actions') }}</h3>
                     {{-- Staff List actions --}}
                     <div class="flex-1" x-show="selectedSub === 'staff_list'" x-transition>
@@ -723,16 +723,16 @@
                 </div>
             </div>
         </div>
-        {{-- Crystal Form 2 (Right) - Key Metrics --}}
-        <div class="flex-1 min-w-0 min-h-full backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
-            <div class="px-4 sm:px-5 md:px-6 pt-4 sm:pt-5 md:pt-6 pb-3 border-b border-white/20 bg-white/5">
+        {{-- Panel 2 - Key Metrics --}}
+        <div class="flex-1 min-w-0 min-h-[240px] lg:min-h-[calc(100vh-16rem)] backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
+            <div class="px-4 sm:px-5 md:px-6 pt-4 sm:pt-5 md:pt-6 pb-3 border-b border-white/20 bg-white/5 shrink-0">
                 <h2 class="text-base sm:text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                     <span class="w-1 h-5 rounded-full bg-[#83b735]"></span>
                     {{ __('app.dashboard.key_metrics') }}
                 </h2>
             </div>
             <div class="flex-1 p-3 sm:p-4 md:p-5 overflow-auto min-h-0">
-                <div class="flex flex-row gap-2 sm:gap-3 md:gap-4 h-full min-h-0">
+                <div class="grid grid-cols-2 lg:flex lg:flex-row gap-2 sm:gap-3 md:gap-4 min-h-0">
                     @foreach (['sales_cash', 'inventory_health', 'purchase_flow', 'customers_service'] as $group)
                     <div class="flex-1 min-w-0 flex flex-col gap-1.5 sm:gap-2">
                         <h3 class="text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-widest shrink-0 px-1 flex items-center gap-1.5">

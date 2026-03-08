@@ -9,6 +9,10 @@
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
     --color-brand: #83b735;
+    --color-brand-hover: #6f9d2d;
+    --color-brand-muted: rgba(131, 183, 53, 0.2);
+    --radius-panel: 1rem;
+    --radius-input: 0.75rem;
 }
 
 /* Alpine.js cloak - hide until initialized */
@@ -27,26 +31,11 @@
     }
 }
 
-/* Crystal / Glass opacity levels - controlled via body class */
+/* Glass opacity: 0 = شفاف (crystal), 100 = گہرا (dark). Set via body inline style from slider. */
 :root {
     --glass-from: 0.24;
     --glass-to: 0.14;
     --glass-solid: 0.24;
-}
-body.crystal-soft {
-    --glass-from: 0.12;
-    --glass-to: 0.05;
-    --glass-solid: 0.15;
-}
-body.crystal-moderate {
-    --glass-from: 0.24;
-    --glass-to: 0.14;
-    --glass-solid: 0.24;
-}
-body.crystal-strong {
-    --glass-from: 0.38;
-    --glass-to: 0.24;
-    --glass-solid: 0.38;
 }
 
 .glass-panel {
@@ -65,4 +54,117 @@ html.locale-ur body,
 html.locale-ur .font-sans,
 html.locale-ur [class*="font-"] {
     font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+/* Design utilities */
+@layer utilities {
+    .page-container { @apply max-w-7xl mx-auto px-3 sm:px-4 md:px-5 py-4 sm:py-5; }
+    .page-heading { @apply text-xl sm:text-2xl font-bold text-white; }
+    .table-header { @apply border-b border-white/20 bg-white/5; }
+    .table-header th { @apply px-4 py-3 text-left text-xs font-bold text-white/90 uppercase; }
+    .table-header th:last-child { @apply text-right; }
+    .table-row { @apply border-b border-white/10 hover:bg-white/5 transition-colors; }
+    .badge-active { @apply px-2 py-0.5 rounded-full text-xs font-medium bg-[#83b735]/20 text-[#83b735]; }
+    .badge-inactive { @apply px-2 py-0.5 rounded-full text-xs font-medium bg-white/20 text-white/70; }
+    .badge-warning { @apply px-2 py-0.5 rounded-full text-xs font-medium bg-amber-500/20 text-amber-400; }
+}
+
+/* Focus visible for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    @apply outline-none ring-2 ring-[#83b735] ring-offset-2 ring-offset-transparent;
+}
+
+/* Select option styling for dark glass theme */
+select option {
+    background: rgb(15 23 42);
+    color: rgb(255 255 255);
+}
+
+/* Glass range control: readable panel + slider */
+.glass-range-control {
+    min-width: 0;
+}
+
+.glass-range-input {
+    background: rgba(255, 255, 255, 0.2);
+}
+.glass-range-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #83b735;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.glass-range-input::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.25);
+}
+.glass-range-input::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #83b735;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.glass-range-input::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Form loading overlay visible when form is submitting */
+#form-loading-overlay[style*="pointer-events: auto"] {
+    pointer-events: auto;
+}
+
+/* Pagination: match glass theme */
+nav[role="navigation"] .flex span,
+nav[role="navigation"] .flex a {
+    @apply px-3 py-2 rounded-xl text-sm font-medium transition-all;
+}
+nav[role="navigation"] .flex a {
+    @apply bg-white/10 border border-white/20 text-white/90 hover:bg-white/20 hover:border-white/30;
+}
+nav[role="navigation"] .flex span[aria-current="page"] {
+    @apply bg-[#83b735]/20 border-[#83b735]/40 text-[#83b735];
+}
+nav[role="navigation"] .flex span[aria-disabled="true"] {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* Touch-friendly: minimum tap target on primary controls */
+@media (pointer: coarse) {
+    .glass-range-input::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+    .glass-range-input::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Tables: ensure horizontal scroll on small screens */
+.table-wrapper {
+    @apply overflow-x-auto -mx-1;
+}
+.table-wrapper table {
+    @apply min-w-[640px];
+}
+
+/* Accessibility: ensure focus ring on interactive elements */
+[role="button"]:focus-visible,
+[type="submit"]:focus-visible,
+[type="button"]:focus-visible {
+    @apply outline-none ring-2 ring-[#83b735] ring-offset-2 ring-offset-transparent;
 }

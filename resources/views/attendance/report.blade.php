@@ -54,7 +54,7 @@
                         <td class="px-4 py-3"><span class="px-2 py-0.5 rounded-full text-xs {{ $a->status === 'present' ? 'bg-[#83b735]/20 text-[#83b735]' : 'bg-red-500/20 text-red-400' }}">{{ ucfirst(str_replace('_', ' ', $a->status)) }}</span></td>
                     </tr>
                     @empty
-                    <tr><td colspan="5" class="px-4 py-12 text-center text-white/60">{{ __('app.attendance.no_records') }}</td></tr>
+                    <tr><td colspan="5"><x-empty-state :message="__('app.attendance.no_records')" /></td></tr>
                     @endforelse
                 </tbody>
             </table>

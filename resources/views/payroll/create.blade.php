@@ -3,48 +3,37 @@
 @section('title', __('app.payroll.generate') . ' - Agricart ERP')
 
 @section('content')
-<div class="px-3 sm:px-4 md:px-5 py-4 sm:py-5">
+<div class="page-container">
     <div class="max-w-2xl mx-auto">
-        <div class="flex items-center gap-3 mb-6">
-            <a href="{{ route('payroll.index') }}" class="p-2 rounded-xl glass-solid border border-white/20 text-white/90 hover:bg-white/20 transition-all">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-            </a>
-            <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.payroll.generate') }}</h1>
-        </div>
+        <x-page-back :href="route('payroll.index')" :title="__('app.payroll.generate')" />
 
         @if($exists)
-        <div class="mb-6 p-4 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-200 text-sm">{{ __('app.payroll.already_exists') }}</div>
+        <x-alert type="warning" class="mb-6">{{ __('app.payroll.already_exists') }}</x-alert>
         @endif
 
-        <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6">
+        <x-card>
             @if ($errors->any())
-            <div class="mb-6 p-4 rounded-xl bg-red-500/20 border border-red-400/30">
-                <ul class="text-sm text-red-200 space-y-1">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
-            </div>
+            <x-alert type="error" class="mb-6">
+                <ul class="space-y-1">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
+            </x-alert>
             @endif
 
             <form method="POST" action="{{ route('payroll.store') }}" class="space-y-5">
                 @csrf
                 <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.payroll.month') }}</label>
-                        <select name="month" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                            @foreach(range(1, 12) as $m)
-                            <option value="{{ $m }}" {{ old('month', $month) == $m ? 'selected' : '' }}>{{ date('F', mktime(0, 0, 0, $m, 1)) }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.payroll.year') }}</label>
-                        <input type="number" name="year" value="{{ old('year', $year) }}" min="2020" max="2100" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                    </div>
+                    <x-select name="month" :label="__('app.payroll.month')" required>
+                        @foreach(range(1, 12) as $m)
+                        <option value="{{ $m }}" {{ old('month', $month) == $m ? 'selected' : '' }}>{{ date('F', mktime(0, 0, 0, $m, 1)) }}</option>
+                        @endforeach
+                    </x-select>
+                    <x-input type="number" name="year" :label="__('app.payroll.year')" :value="old('year', $year)" min="2020" max="2100" required />
                 </div>
-                <div class="flex gap-3">
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#83b735] text-white font-semibold hover:bg-[#6f9d2d]">{{ __('app.payroll.generate') }}</button>
-                    <a href="{{ route('payroll.index') }}" class="px-6 py-2.5 rounded-xl glass-solid border border-white/20 text-white text-sm hover:bg-white/20">{{ __('app.payroll.cancel') }}</a>
+                <div class="flex gap-3 pt-2">
+                    <x-button type="submit" variant="primary">{{ __('app.payroll.generate') }}</x-button>
+                    <x-button :href="route('payroll.index')" variant="secondary">{{ __('app.payroll.cancel') }}</x-button>
                 </div>
             </form>
-        </div>
+        </x-card>
     </div>
 </div>
 @endsection

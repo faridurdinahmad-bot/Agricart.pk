@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md">
-        <div class="backdrop-blur-xl glass-solid border border-white/20 rounded-2xl shadow-2xl p-8 sm:p-10">
+        <x-card class="shadow-2xl">
             <div class="text-center mb-8">
                 <div class="mx-auto w-14 h-14 rounded-full bg-[#83b735]/20 flex items-center justify-center mb-4">
                     <svg class="w-7 h-7 text-[#83b735]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -17,40 +17,21 @@
             </div>
 
             @if (session('status'))
-                <div class="mb-6 p-4 rounded-xl bg-[#83b735]/20 border border-[#83b735]/30 text-[#83b735] text-sm">
-                    {{ session('status') }}
-                </div>
+                <x-alert type="success" class="mb-6">{{ session('status') }}</x-alert>
             @endif
 
             @if ($errors->any())
-                <div class="mb-6 p-4 rounded-xl bg-red-500/20 border border-red-400/30 text-red-200 text-sm">
+                <x-alert type="error" class="mb-6">
                     @foreach ($errors->all() as $error)
                         <p>{{ $error }}</p>
                     @endforeach
-                </div>
+                </x-alert>
             @endif
 
             <form method="POST" action="{{ route('password.email') }}" class="space-y-6">
                 @csrf
-                <div>
-                    <label for="email" class="block text-sm font-medium text-white/90 mb-2">{{ __('app.auth.email') }}</label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value="{{ old('email') }}"
-                        required
-                        autofocus
-                        placeholder="you@example.com"
-                        class="w-full px-4 py-3 rounded-xl bg-white/90 border border-white/30 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#83b735] focus:border-transparent"
-                    >
-                </div>
-                <button
-                    type="submit"
-                    class="w-full py-3.5 px-4 rounded-xl bg-[#83b735] text-white font-semibold hover:bg-[#6f9d2d] focus:outline-none focus:ring-2 focus:ring-[#83b735] focus:ring-offset-2 transition-all shadow-lg shadow-[#83b735]/25"
-                >
-                    {{ __('app.forgot.send') }}
-                </button>
+                <x-input type="email" name="email" :label="__('app.auth.email')" placeholder="you@example.com" required variant="light" autofocus />
+                <x-button type="submit" variant="primary" size="lg" block>{{ __('app.forgot.send') }}</x-button>
             </form>
 
             <a href="{{ route('login') }}" class="mt-6 flex items-center justify-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
@@ -59,7 +40,7 @@
                 </svg>
                 {{ __('app.forgot.back') }}
             </a>
-        </div>
+        </x-card>
     </div>
 </div>
 @endsection

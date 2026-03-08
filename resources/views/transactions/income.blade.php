@@ -3,18 +3,19 @@
 @section('title', __('app.finance.income') . ' - Agricart ERP')
 
 @section('content')
-<div class="px-3 sm:px-4 md:px-5 py-4 sm:py-5">
+<div class="page-container">
     <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-            <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.finance.income') }}</h1>
-            <a href="{{ route('transactions.create', ['type' => 'income']) }}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#83b735] text-white font-medium text-sm hover:bg-[#6f9d2d] transition-all">{{ __('app.finance.add_income') }}</a>
-        </div>
+        <x-page-heading :title="__('app.finance.income')">
+            <x-slot:actions>
+                <x-button href="{{ route('transactions.create', ['type' => 'income']) }}" variant="primary">{{ __('app.finance.add_income') }}</x-button>
+            </x-slot:actions>
+        </x-page-heading>
 
         @if(session('success'))
-        <div class="mb-4 p-4 rounded-xl bg-[#83b735]/20 border border-[#83b735]/40 text-[#83b735] text-sm">{{ session('success') }}</div>
+        <x-alert type="success" class="mb-4">{{ session('success') }}</x-alert>
         @endif
 
-        <form method="GET" class="mb-4 flex flex-wrap gap-2">
+        <form method="GET" class="mb-4 flex flex-wrap gap-2 items-end">
             <select name="account_id" class="px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-white">
                 <option value="">{{ __('app.finance.all_accounts') }}</option>
                 @foreach($accounts as $a)
@@ -26,11 +27,11 @@
             <button type="submit" class="px-4 py-2 rounded-xl bg-[#83b735] text-white text-sm">{{ __('app.finance.filter') }}</button>
         </form>
 
-        <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl overflow-hidden">
+        <x-card :padding="false" class="overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full">
+                <table class="w-full min-w-[640px]">
                     <thead>
-                        <tr class="border-b border-white/20 bg-white/5">
+                        <tr class="table-header">
                             <th class="px-4 py-3 text-left text-xs font-bold text-white/90 uppercase">{{ __('app.finance.date') }}</th>
                             <th class="px-4 py-3 text-left text-xs font-bold text-white/90 uppercase">{{ __('app.finance.account') }}</th>
                             <th class="px-4 py-3 text-left text-xs font-bold text-white/90 uppercase">{{ __('app.finance.description') }}</th>
@@ -41,7 +42,7 @@
                     </thead>
                     <tbody>
                         @forelse($transactions as $t)
-                        <tr class="border-b border-white/10 hover:bg-white/5">
+                        <tr class="table-row">
                             <td class="px-4 py-3 text-sm text-white/90">{{ $t->date->format('d M Y') }}</td>
                             <td class="px-4 py-3 text-sm text-white/90">{{ $t->account->name }}</td>
                             <td class="px-4 py-3 text-sm text-white/90">{{ $t->description ?? $t->reference ?? '—' }}</td>
@@ -52,7 +53,7 @@
                             </td>
                         </tr>
                         @empty
-                        <tr><td colspan="6" class="px-4 py-12 text-center text-white/60">{{ __('app.finance.no_transactions') }}</td></tr>
+                        <tr><td colspan="6"><x-empty-state :message="__('app.finance.no_transactions')" /></td></tr>
                         @endforelse
                     </tbody>
                 </table>
@@ -60,7 +61,7 @@
             @if($transactions->hasPages())
             <div class="px-4 py-3 border-t border-white/10">{{ $transactions->links() }}</div>
             @endif
-        </div>
+        </x-card>
     </div>
 </div>
 @endsection

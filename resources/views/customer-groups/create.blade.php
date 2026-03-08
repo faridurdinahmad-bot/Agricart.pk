@@ -3,48 +3,31 @@
 @section('title', __('app.contacts.add_group') . ' - Agricart ERP')
 
 @section('content')
-<div class="px-3 sm:px-4 md:px-5 py-4 sm:py-5">
+<div class="page-container">
     <div class="max-w-2xl mx-auto">
-        <div class="flex items-center gap-3 mb-6">
-            <a href="{{ route('customer-groups.index') }}" class="p-2 rounded-xl glass-solid border border-white/20 text-white/90 hover:bg-white/20 transition-all">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-            </a>
-            <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.contacts.add_group') }}</h1>
-        </div>
+        <x-page-back :href="route('customer-groups.index')" :title="__('app.contacts.add_group')" />
 
-        <div class="backdrop-blur-xl glass-panel border border-white/25 rounded-2xl p-6">
+        <x-card>
             @if ($errors->any())
-            <div class="mb-6 p-4 rounded-xl bg-red-500/20 border border-red-400/30">
-                <ul class="text-sm text-red-200 space-y-1">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
-            </div>
+            <x-alert type="error" class="mb-6">
+                <ul class="space-y-1">@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
+            </x-alert>
             @endif
 
             <form method="POST" action="{{ route('customer-groups.store') }}" class="space-y-5">
                 @csrf
-                <div>
-                    <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.contacts.name') }}</label>
-                    <input type="text" name="name" value="{{ old('name') }}" required class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.contacts.description') }}</label>
-                    <input type="text" name="description" value="{{ old('description') }}" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                </div>
+                <x-input name="name" :label="__('app.contacts.name')" required />
+                <x-input name="description" :label="__('app.contacts.description')" />
                 <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.contacts.discount') }} (%)</label>
-                        <input type="number" name="discount_percent" value="{{ old('discount_percent', 0) }}" step="0.01" min="0" max="100" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-white/90 mb-2">{{ __('app.contacts.price_type') }}</label>
-                        <input type="text" name="price_type" value="{{ old('price_type') }}" placeholder="e.g. retail, wholesale" class="w-full px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white">
-                    </div>
+                    <x-input type="number" name="discount_percent" :label="__('app.contacts.discount') . ' (%)'" :value="old('discount_percent', 0)" step="0.01" min="0" max="100" />
+                    <x-input name="price_type" :label="__('app.contacts.price_type')" placeholder="e.g. retail, wholesale" />
                 </div>
-                <div class="flex gap-3">
-                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#83b735] text-white font-semibold hover:bg-[#6f9d2d]">{{ __('app.contacts.save') }}</button>
-                    <a href="{{ route('customer-groups.index') }}" class="px-6 py-2.5 rounded-xl glass-solid border border-white/20 text-white text-sm hover:bg-white/20">{{ __('app.contacts.cancel') }}</a>
+                <div class="flex gap-3 pt-2">
+                    <x-button type="submit" variant="primary">{{ __('app.contacts.save') }}</x-button>
+                    <x-button :href="route('customer-groups.index')" variant="secondary">{{ __('app.contacts.cancel') }}</x-button>
                 </div>
             </form>
-        </div>
+        </x-card>
     </div>
 </div>
 @endsection

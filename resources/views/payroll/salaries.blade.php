@@ -39,7 +39,7 @@
                         </td>
                     </tr>
                     @empty
-                    <tr><td colspan="5" class="px-4 py-12 text-center text-white/60">{{ __('app.payroll.no_salaries') }}</td></tr>
+                    <tr><td colspan="5"><x-empty-state :message="__('app.payroll.no_salaries')" /></td></tr>
                     @endforelse
                 </tbody>
             </table>

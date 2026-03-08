@@ -52,7 +52,7 @@
                             </td>
                         </tr>
                         @empty
-                        <tr><td colspan="5" class="px-4 py-12 text-center text-white/60">{{ __('app.sale.no_hold_invoices') }}</td></tr>
+                        <tr><td colspan="5"><x-empty-state :message="__('app.sale.no_hold_invoices')" /></td></tr>
                         @endforelse
                     </tbody>
                 </table>

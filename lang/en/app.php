@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'common' => [
+        'no_search_results' => 'No results found for your search. Try different keywords.',
+        'back' => 'Back',
+        'loading' => 'Loading…',
+    ],
     'nav' => [
         'login' => 'Login',
         'register' => 'Register',
@@ -73,9 +78,15 @@ return [
         'default_user' => 'Admin',
         'menus' => 'Menus',
         'key_metrics' => 'Key Metrics',
+        'crystal_clear' => 'Clear (most transparent)',
         'crystal_soft' => 'More Crystal',
         'crystal_moderate' => 'Moderate',
         'crystal_strong' => 'More Opaque',
+        'crystal_deep' => 'Deep (most solid)',
+        'glass' => 'Glass',
+        'glass_opacity' => 'Adjust panel transparency',
+        'glass_light' => 'More transparent',
+        'glass_dark' => 'More solid / dark',
     ],
     'metrics' => [
         'sales_cash_title' => 'Sales & Cash',
