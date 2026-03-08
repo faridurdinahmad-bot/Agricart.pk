@@ -5,7 +5,7 @@
 @section('content')
 <div class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-4xl">
-        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-8 sm:p-12 lg:p-16">
+        <div class="backdrop-blur-xl glass-solid border border-white/20 rounded-2xl p-8 sm:p-12 lg:p-16">
             <h1 class="text-3xl sm:text-4xl font-bold text-white mb-8">{{ __('app.terms.title') }}</h1>
             <p class="text-white/80 mb-6">{{ __('app.terms.last_updated') }}: {{ now()->translatedFormat('F j, Y') }}</p>
 

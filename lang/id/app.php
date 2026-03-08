@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Anda masuk ke Agricart ERP.',
         'menus' => 'Menu',
         'key_metrics' => 'Metrik Utama',
+        'crystal_soft' => 'Lebih kristal',
+        'crystal_moderate' => 'Sedang',
+        'crystal_strong' => 'Lebih buram',
     ],
     'metrics' => [
         'sales_cash_title' => 'Penjualan & Kas',

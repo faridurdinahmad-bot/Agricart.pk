@@ -40,7 +40,9 @@ return [
         'welcome_back' => 'Welcome Back',
         'sign_in_subtitle' => 'Sign in to your Agricart ERP account',
         'email' => 'Email Address',
+        'email_placeholder' => 'you@example.com',
         'password' => 'Password',
+        'password_placeholder' => '••••••••',
         'remember' => 'Remember me',
         'forgot_password' => 'Forgot password?',
         'sign_in' => 'Sign In',
@@ -49,6 +51,9 @@ return [
         'no_account' => "Don't have an account?",
         'create_account' => 'Create account',
         'security_note' => 'Your data is protected with industry-standard encryption',
+        'show_password' => 'Show password',
+        'hide_password' => 'Hide password',
+        'toggle_password' => 'Toggle password visibility',
     ],
     'forgot' => [
         'title' => 'Forgot Password?',
@@ -65,8 +70,12 @@ return [
     'dashboard' => [
         'welcome' => 'Welcome',
         'subtitle' => "You're logged in to Agricart ERP.",
+        'default_user' => 'Admin',
         'menus' => 'Menus',
         'key_metrics' => 'Key Metrics',
+        'crystal_soft' => 'More Crystal',
+        'crystal_moderate' => 'Moderate',
+        'crystal_strong' => 'More Opaque',
     ],
     'metrics' => [
         'sales_cash_title' => 'Sales & Cash',

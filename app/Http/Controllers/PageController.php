@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class PageController extends Controller
 {
     /**
      * Display the privacy policy page.
      */
-    public function privacy()
+    public function privacy(): View
     {
         return view('pages.privacy');
     }
@@ -15,7 +17,7 @@ class PageController extends Controller
     /**
      * Display the terms and conditions page.
      */
-    public function terms()
+    public function terms(): View
     {
         return view('pages.terms');
     }

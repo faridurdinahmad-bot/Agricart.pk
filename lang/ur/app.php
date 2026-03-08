@@ -40,7 +40,9 @@ return [
         'welcome_back' => 'خوش آمدید',
         'sign_in_subtitle' => 'اپنے Agricart ERP اکاؤنٹ میں سائن ان کریں',
         'email' => 'ای میل ایڈریس',
+        'email_placeholder' => 'you@example.com',
         'password' => 'پاس ورڈ',
+        'password_placeholder' => '••••••••',
         'remember' => 'مجھے یاد رکھیں',
         'forgot_password' => 'پاس ورڈ بھول گئے؟',
         'sign_in' => 'سائن ان',
@@ -49,6 +51,9 @@ return [
         'no_account' => 'اکاؤنٹ نہیں ہے؟',
         'create_account' => 'اکاؤنٹ بنائیں',
         'security_note' => 'آپ کے ڈیٹا کو صنعت کے معیاری خفیہ کاری سے محفوظ کیا گیا ہے',
+        'show_password' => 'پاس ورڈ دکھائیں',
+        'hide_password' => 'پاس ورڈ چھپائیں',
+        'toggle_password' => 'پاس ورڈ کی نمائش تبدیل کریں',
     ],
     'forgot' => [
         'title' => 'پاس ورڈ بھول گئے؟',
@@ -65,8 +70,12 @@ return [
     'dashboard' => [
         'welcome' => 'خوش آمدید',
         'subtitle' => 'آپ Agricart ERP میں لاگ ان ہیں۔',
+        'default_user' => 'ایڈمن',
         'menus' => 'مینیوز',
         'key_metrics' => 'کی میٹرکس',
+        'crystal_soft' => 'زیادہ کرسٹل',
+        'crystal_moderate' => 'متوازن',
+        'crystal_strong' => 'زیادہ واضح',
     ],
     'metrics' => [
         'sales_cash_title' => 'فروخت اور کیش',

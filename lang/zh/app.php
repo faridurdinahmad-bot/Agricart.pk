@@ -65,6 +65,9 @@ return [
         'subtitle' => '您已登录 Agricart ERP。',
         'menus' => '菜单',
         'key_metrics' => '关键指标',
+        'crystal_soft' => '更透明',
+        'crystal_moderate' => '适中',
+        'crystal_strong' => '更不透明',
     ],
     'metrics' => [
         'sales_cash_title' => '销售与现金',

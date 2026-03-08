@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Вы вошли в Agricart ERP.',
         'menus' => 'Меню',
         'key_metrics' => 'Ключевые показатели',
+        'crystal_soft' => 'Больше кристалл',
+        'crystal_moderate' => 'Умеренно',
+        'crystal_strong' => 'Более непрозрачный',
     ],
     'metrics' => [
         'sales_cash_title' => 'Продажи и наличные',

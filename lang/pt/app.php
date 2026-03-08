@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Você está conectado ao Agricart ERP.',
         'menus' => 'Menus',
         'key_metrics' => 'Métricas Chave',
+        'crystal_soft' => 'Mais cristal',
+        'crystal_moderate' => 'Moderado',
+        'crystal_strong' => 'Mais opaco',
     ],
     'metrics' => [
         'sales_cash_title' => 'Vendas e Caixa',

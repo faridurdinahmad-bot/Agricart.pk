@@ -65,6 +65,9 @@ return [
         'subtitle' => 'আপনি Agricart ERP এ লগইন আছেন।',
         'menus' => 'মেনু',
         'key_metrics' => 'মূল মেট্রিক্স',
+        'crystal_soft' => 'আরো ক্রিস্টাল',
+        'crystal_moderate' => 'মাঝারি',
+        'crystal_strong' => 'আরো অস্বচ্ছ',
     ],
     'metrics' => [
         'sales_cash_title' => 'বিক্রয় এবং নগদ',

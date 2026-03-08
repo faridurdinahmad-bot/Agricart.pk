@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Agricart ERP\'de giriş yaptınız.',
         'menus' => 'Menüler',
         'key_metrics' => 'Ana Metrikler',
+        'crystal_soft' => 'Daha kristal',
+        'crystal_moderate' => 'Orta',
+        'crystal_strong' => 'Daha opak',
     ],
     'metrics' => [
         'sales_cash_title' => 'Satış ve Nakit',

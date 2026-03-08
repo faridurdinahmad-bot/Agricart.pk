@@ -6,11 +6,11 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/locale', [LocaleController::class, 'switch'])->name('locale.switch');
+Route::post('/locale', [LocaleController::class, 'switch'])->name('locale.switch')->middleware('throttle:60,1');
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
@@ -28,4 +28,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+});
+
+Route::fallback(function () {
+    return redirect()->route('welcome');
 });

@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Sie sind bei Agricart ERP angemeldet.',
         'menus' => 'Menüs',
         'key_metrics' => 'Schlüsselmetriken',
+        'crystal_soft' => 'Mehr Kristall',
+        'crystal_moderate' => 'Mäßig',
+        'crystal_strong' => 'Mehr deckend',
     ],
     'metrics' => [
         'sales_cash_title' => 'Vertrieb & Kasse',

@@ -65,6 +65,9 @@ return [
         'subtitle' => 'شما به Agricart ERP وارد شده‌اید.',
         'menus' => 'منوها',
         'key_metrics' => 'معیارهای کلیدی',
+        'crystal_soft' => 'کریستال بیشتر',
+        'crystal_moderate' => 'متوسط',
+        'crystal_strong' => 'واضح‌تر',
     ],
     'metrics' => [
         'sales_cash_title' => 'فروش و نقد',

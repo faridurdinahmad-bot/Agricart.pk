@@ -67,6 +67,9 @@ return [
         'subtitle' => 'أنت مسجل الدخول إلى Agricart ERP.',
         'menus' => 'القوائم',
         'key_metrics' => 'المقاييس الرئيسية',
+        'crystal_soft' => 'أكثر بلورية',
+        'crystal_moderate' => 'متوسط',
+        'crystal_strong' => 'أكثر وضوحاً',
     ],
     'metrics' => [
         'sales_cash_title' => 'المبيعات والنقد',

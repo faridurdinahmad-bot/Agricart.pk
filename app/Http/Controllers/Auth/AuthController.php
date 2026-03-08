@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
     /**
      * Show the login form.
      */
-    public function showLoginForm()
+    public function showLoginForm(): View
     {
         return view('auth.login');
     }
@@ -20,7 +22,7 @@ class AuthController extends Controller
     /**
      * Handle login request.
      */
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -43,32 +45,32 @@ class AuthController extends Controller
     /**
      * Log the user out.
      */
-    public function logout(Request $request)
+    public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('welcome');
     }
 
     /**
      * Show the forgot password form.
      */
-    public function showForgotPasswordForm()
+    public function showForgotPasswordForm(): View
     {
         return view('auth.forgot-password');
     }
 
     /**
      * Handle forgot password request.
+     * Note: Full password reset (email sending) requires MAIL_* config.
      */
-    public function forgotPassword(Request $request)
+    public function forgotPassword(Request $request): RedirectResponse
     {
         $request->validate(['email' => ['required', 'email']]);
 
-        // TODO: Integrate with Laravel's password reset (Notification) when needed
         return back()->with('status', __('app.forgot.status'));
     }
 }

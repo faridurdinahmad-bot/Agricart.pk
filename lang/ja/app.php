@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Agricart ERPにログインしています。',
         'menus' => 'メニュー',
         'key_metrics' => '主要指標',
+        'crystal_soft' => 'よりクリスタル',
+        'crystal_moderate' => '中程度',
+        'crystal_strong' => 'より不透明',
     ],
     'metrics' => [
         'sales_cash_title' => '売上と現金',

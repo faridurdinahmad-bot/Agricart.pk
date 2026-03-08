@@ -65,6 +65,9 @@ return [
         'subtitle' => 'Has iniciado sesión en Agricart ERP.',
         'menus' => 'Menús',
         'key_metrics' => 'Métricas Clave',
+        'crystal_soft' => 'Más cristal',
+        'crystal_moderate' => 'Moderado',
+        'crystal_strong' => 'Más opaco',
     ],
     'metrics' => [
         'sales_cash_title' => 'Ventas y Efectivo',

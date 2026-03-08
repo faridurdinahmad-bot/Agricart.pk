@@ -26,3 +26,43 @@
         display: none; /* Chrome, Safari, Opera */
     }
 }
+
+/* Crystal / Glass opacity levels - controlled via body class */
+:root {
+    --glass-from: 0.24;
+    --glass-to: 0.14;
+    --glass-solid: 0.24;
+}
+body.crystal-soft {
+    --glass-from: 0.12;
+    --glass-to: 0.05;
+    --glass-solid: 0.15;
+}
+body.crystal-moderate {
+    --glass-from: 0.24;
+    --glass-to: 0.14;
+    --glass-solid: 0.24;
+}
+body.crystal-strong {
+    --glass-from: 0.38;
+    --glass-to: 0.24;
+    --glass-solid: 0.38;
+}
+
+.glass-panel {
+    background: linear-gradient(to bottom right, rgba(255,255,255,var(--glass-from)), rgba(255,255,255,var(--glass-to))) !important;
+}
+.glass-solid {
+    background-color: rgba(255,255,255,var(--glass-solid)) !important;
+}
+
+/* Urdu: Noto Nastaliq Urdu font + slightly smaller size to match other languages */
+html.locale-ur {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 93.75%; /* 15px base - Nastaliq appears larger, scale down to match */
+}
+html.locale-ur body,
+html.locale-ur .font-sans,
+html.locale-ur [class*="font-"] {
+    font-family: 'Noto Nastaliq Urdu', serif;
+}

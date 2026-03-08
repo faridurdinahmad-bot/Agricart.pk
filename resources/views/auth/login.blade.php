@@ -6,7 +6,7 @@
 <div class="flex items-center justify-center py-6 sm:py-8 md:py-10 lg:py-12 px-4 sm:px-6 min-h-[calc(100vh-8rem)]">
     <div class="w-full max-w-[340px] sm:max-w-[380px] md:max-w-[400px]">
         {{-- Login Card - Compact & Responsive --}}
-        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-5 sm:p-6 md:p-7">
+        <div class="backdrop-blur-xl glass-solid border border-white/20 rounded-2xl shadow-2xl p-5 sm:p-6 md:p-7">
             {{-- Header --}}
             <div class="text-center mb-5 sm:mb-6">
                 <h1 class="text-xl sm:text-2xl font-bold text-white">{{ __('app.auth.welcome_back') }}</h1>
@@ -44,7 +44,7 @@
                         required
                         autofocus
                         autocomplete="email"
-                        placeholder="you@example.com"
+                        placeholder="{{ __('app.auth.email_placeholder') }}"
                         class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-white/90 border border-white/30 text-slate-900 text-sm sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#83b735] focus:border-transparent transition-all"
                     >
                 </div>
@@ -59,15 +59,15 @@
                             id="password"
                             required
                             autocomplete="current-password"
-                            placeholder="••••••••"
+                            placeholder="{{ __('app.auth.password_placeholder') }}"
                             class="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 pr-11 sm:pr-12 rounded-xl bg-white/90 border border-white/30 text-slate-900 text-sm sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#83b735] focus:border-transparent transition-all"
                         >
                         <button
                             type="button"
                             onclick="togglePassword()"
                             class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-slate-500 hover:text-slate-700 focus:outline-none rounded-lg hover:bg-white/50 transition-colors"
-                            title="Show/Hide password"
-                            aria-label="Toggle password visibility"
+                            title="{{ __('app.auth.toggle_password') }}"
+                            aria-label="{{ __('app.auth.toggle_password') }}"
                         >
                             <svg id="eye-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -115,7 +115,7 @@
             </div>
 
             {{-- Social Login - Google (placeholder, not yet implemented) --}}
-            <a href="#" class="flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 rounded-xl backdrop-blur-xl bg-white/10 border border-white/20 text-white text-sm sm:text-base font-medium opacity-60 cursor-not-allowed pointer-events-none w-full" aria-disabled="true">
+            <span role="button" tabindex="-1" class="flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 rounded-xl backdrop-blur-xl glass-solid border border-white/20 text-white text-sm sm:text-base font-medium opacity-60 cursor-not-allowed pointer-events-none w-full" aria-disabled="true">
                 <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -123,7 +123,7 @@
                     <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
                 </svg>
                 {{ __('app.auth.continue_google') }}
-            </a>
+            </span>
 
             {{-- Register Link --}}
             <p class="mt-5 sm:mt-6 text-center text-xs sm:text-sm text-white/80">

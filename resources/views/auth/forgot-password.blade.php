@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-[calc(100vh-12rem)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-md">
-        <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8 sm:p-10">
+        <div class="backdrop-blur-xl glass-solid border border-white/20 rounded-2xl shadow-2xl p-8 sm:p-10">
             <div class="text-center mb-8">
                 <div class="mx-auto w-14 h-14 rounded-full bg-[#83b735]/20 flex items-center justify-center mb-4">
                     <svg class="w-7 h-7 text-[#83b735]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
