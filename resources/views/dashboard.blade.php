@@ -23,11 +23,11 @@
     </div>
 </div>
 
-{{-- Two panels: on mobile stack vertically, on md+ side by side --}}
+{{-- Two panels: on mobile stack vertically, from md (768px) up side by side like desktop --}}
 <div class="flex-1 flex min-h-0 w-full overflow-x-hidden p-3 sm:p-4 md:p-5">
-    <div class="flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 w-full max-w-7xl mx-auto min-h-0 flex-1">
+    <div class="flex flex-col md:flex-row gap-3 sm:gap-4 md:gap-5 w-full max-w-7xl mx-auto min-h-0 flex-1">
         {{-- Panel 1 - Menus --}}
-        <div class="flex-1 min-w-0 min-h-[280px] lg:min-h-[calc(100vh-16rem)] max-h-[50vh] lg:max-h-none backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
+        <div class="flex-1 min-w-0 min-h-[280px] md:min-h-[calc(100vh-16rem)] max-h-[50vh] md:max-h-none backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
             <div class="px-4 sm:px-5 md:px-6 pt-4 sm:pt-5 md:pt-6 pb-3 border-b border-white/20 bg-white/5">
                 <h2 class="text-base sm:text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                     <span class="w-1 h-5 rounded-full bg-[#83b735]"></span>
@@ -724,7 +724,7 @@
             </div>
         </div>
         {{-- Panel 2 - Key Metrics --}}
-        <div class="flex-1 min-w-0 min-h-[240px] lg:min-h-[calc(100vh-16rem)] backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
+        <div class="flex-1 min-w-0 min-h-[240px] md:min-h-[calc(100vh-16rem)] backdrop-blur-2xl glass-panel border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)_inset] overflow-hidden flex flex-col">
             <div class="px-4 sm:px-5 md:px-6 pt-4 sm:pt-5 md:pt-6 pb-3 border-b border-white/20 bg-white/5 shrink-0">
                 <h2 class="text-base sm:text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2">
                     <span class="w-1 h-5 rounded-full bg-[#83b735]"></span>
@@ -732,7 +732,7 @@
                 </h2>
             </div>
             <div class="flex-1 p-3 sm:p-4 md:p-5 overflow-auto min-h-0">
-                <div class="grid grid-cols-2 lg:flex lg:flex-row gap-2 sm:gap-3 md:gap-4 min-h-0">
+                <div class="grid grid-cols-2 md:flex md:flex-row gap-2 sm:gap-3 md:gap-4 min-h-0">
                     @foreach (['sales_cash', 'inventory_health', 'purchase_flow', 'customers_service'] as $group)
                     <div class="flex-1 min-w-0 flex flex-col gap-1.5 sm:gap-2">
                         <h3 class="text-[10px] sm:text-xs font-bold text-white/80 uppercase tracking-widest shrink-0 px-1 flex items-center gap-1.5">

@@ -168,3 +168,4 @@ nav[role="navigation"] .flex span[aria-disabled="true"] {
 [type="button"]:focus-visible {
     @apply outline-none ring-2 ring-[#83b735] ring-offset-2 ring-offset-transparent;
 }
+

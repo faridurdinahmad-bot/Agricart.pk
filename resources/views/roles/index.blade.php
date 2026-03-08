@@ -46,7 +46,11 @@
                                 <div class="flex items-center justify-end gap-2">
                                     <x-button href="{{ route('roles.edit', $role) }}" variant="secondary" size="sm">{{ __('app.menu.roles_menu.edit_role') }}</x-button>
                                     <form method="POST" action="{{ route('roles.copy', $role) }}" class="inline">@csrf<x-button type="submit" variant="secondary" size="sm">{{ __('app.menu.roles_menu.copy_role') }}</x-button></form>
-                                    <form method="POST" action="{{ route('roles.destroy', $role) }}" class="inline" onsubmit="return confirm('{{ __('app.menu.roles_menu.delete_role') }}?');">@csrf @method('DELETE')<x-button type="submit" variant="danger" size="sm">{{ __('app.menu.roles_menu.delete_role') }}</x-button></form>
+                                    <form method="POST" action="{{ route('roles.destroy', $role) }}" class="inline" onsubmit="return confirm('{{ __('app.menu.roles_menu.delete_role') }}?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-button type="submit" variant="danger" size="sm">{{ __('app.menu.roles_menu.delete_role') }}</x-button>
+                                </form>
                                 </div>
                             </td>
                         </tr>

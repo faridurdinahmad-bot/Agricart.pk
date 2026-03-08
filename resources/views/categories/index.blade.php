@@ -38,7 +38,11 @@
                             <td class="px-4 py-3 text-right">
                                 <div class="flex items-center justify-end gap-2">
                                     <x-button href="{{ route('categories.edit', $c) }}" variant="secondary" size="sm">{{ __('app.inventory.edit') }}</x-button>
-                                    <form method="POST" action="{{ route('categories.destroy', $c) }}" class="inline" onsubmit="return confirm('{{ __('app.inventory.delete_confirm') }}');">@csrf @method('DELETE')<x-button type="submit" variant="danger" size="sm">{{ __('app.inventory.delete') }}</x-button></form>
+                                    <form method="POST" action="{{ route('categories.destroy', $c) }}" class="inline" onsubmit="return confirm('{{ __('app.inventory.delete_confirm') }}');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-button type="submit" variant="danger" size="sm">{{ __('app.inventory.delete') }}</x-button>
+                                </form>
                                 </div>
                             </td>
                         </tr>
