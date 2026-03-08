@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-brand: #83b735;
+}
+
+/* Alpine.js cloak - hide until initialized */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Hide scrollbar across the entire app - scroll still works */
+@layer base {
+    html {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    html::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
